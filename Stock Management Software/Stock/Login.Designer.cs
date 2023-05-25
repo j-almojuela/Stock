@@ -119,6 +119,7 @@
             Controls.Add(Password);
             Controls.Add(Username);
             Name = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             ResumeLayout(false);
             PerformLayout();

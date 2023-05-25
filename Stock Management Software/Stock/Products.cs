@@ -64,7 +64,7 @@ namespace Stock
 
                 //Reading Data
                 LoadData();
-                ResetRecords(); 
+                ResetRecords();
             }
         }
 
@@ -119,26 +119,29 @@ namespace Stock
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-
-            if (Validation())
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this?", "Message", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                SqlConnection con = Connection.GetConnection();
-                var sqlQuery = "";
-                if (IfProductsExists(con, ProductCode.Text))
+                if (Validation())
                 {
-                    con.Open();
-                    sqlQuery = @"DELETE FROM [Products] WHERE [ProductCode] = '" + ProductCode.Text + "'";
-                    SqlCommand cmd = new SqlCommand(sqlQuery, con);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
+                    SqlConnection con = Connection.GetConnection();
+                    var sqlQuery = "";
+                    if (IfProductsExists(con, ProductCode.Text))
+                    {
+                        con.Open();
+                        sqlQuery = @"DELETE FROM [Products] WHERE [ProductCode] = '" + ProductCode.Text + "'";
+                        SqlCommand cmd = new SqlCommand(sqlQuery, con);
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Record does not exist");
+                    }
+                    //Reading Data
+                    LoadData();
+                    ResetRecords();
                 }
-                else
-                {
-                    MessageBox.Show("Record does not exist");
-                }
-                //Reading Data
-                LoadData();
-                ResetRecords();
             }
         }
 
@@ -159,7 +162,22 @@ namespace Stock
         private bool Validation()
         {
             bool result = false;
-            if(!string.IsNullOrEmpty(ProductCode.Text) && !string.IsNullOrEmpty(ProductName.Text) && Status.SelectedIndex > -1)
+            if (string.IsNullOrEmpty(ProductCode.Text))
+            {
+                errorProvider1.Clear();
+                errorProvider1.SetError(ProductCode, "Product code required");
+            }
+            else if (string.IsNullOrEmpty(ProductName.Text))
+            {
+                errorProvider1.Clear();
+                errorProvider1.SetError(ProductName, "Product name required");
+            }
+            else if (Status.SelectedIndex == -1)
+            {
+                errorProvider1.Clear();
+                errorProvider1.SetError(Status, "Select status");
+            }
+            else
             {
                 result = true;
             }

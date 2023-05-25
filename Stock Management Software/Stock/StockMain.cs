@@ -23,10 +23,23 @@ namespace Stock
             pro.MdiParent = this;
             pro.Show();
         }
-
+        bool close = true;
         private void StockMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            if(close)
+            {
+
+            DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    close = false;
+                    Application.Exit();
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
         }
     }
 }

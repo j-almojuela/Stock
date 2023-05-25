@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             ProductCode = new TextBox();
             ProductName = new TextBox();
             Status = new ComboBox();
@@ -41,7 +42,9 @@
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             ResetButton = new Button();
+            errorProvider1 = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // ProductCode
@@ -154,6 +157,10 @@
             ResetButton.UseVisualStyleBackColor = true;
             ResetButton.Click += ResetButton_Click;
             // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
             // Products
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -170,9 +177,11 @@
             Controls.Add(ProductName);
             Controls.Add(ProductCode);
             Name = "Products";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Products";
             Load += Products_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -192,5 +201,6 @@
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private Button ResetButton;
+        private ErrorProvider errorProvider1;
     }
 }
