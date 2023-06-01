@@ -38,11 +38,11 @@
             label2 = new Label();
             label3 = new Label();
             dataGridView1 = new DataGridView();
+            ResetButton = new Button();
+            errorProvider1 = new ErrorProvider(components);
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
-            ResetButton = new Button();
-            errorProvider1 = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
@@ -131,22 +131,6 @@
             dataGridView1.TabIndex = 8;
             dataGridView1.MouseDoubleClick += dataGridView1_MouseDoubleClick;
             // 
-            // Column1
-            // 
-            Column1.HeaderText = "Product Code";
-            Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column2.HeaderText = "Product Name";
-            Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Status";
-            Column3.Name = "Column3";
-            // 
             // ResetButton
             // 
             ResetButton.Location = new Point(774, 59);
@@ -160,6 +144,24 @@
             // errorProvider1
             // 
             errorProvider1.ContainerControl = this;
+            // 
+            // Column1
+            // 
+            Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Column1.HeaderText = "Product Code";
+            Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Column2.HeaderText = "Product Name";
+            Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Column3.HeaderText = "Status";
+            Column3.Name = "Column3";
             // 
             // Products
             // 
@@ -197,10 +199,10 @@
         private Label label2;
         private Label label3;
         private DataGridView dataGridView1;
+        private Button ResetButton;
+        private ErrorProvider errorProvider1;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
-        private Button ResetButton;
-        private ErrorProvider errorProvider1;
     }
 }

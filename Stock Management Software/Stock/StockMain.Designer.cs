@@ -62,6 +62,7 @@
             stockToolStripMenuItem.Name = "stockToolStripMenuItem";
             stockToolStripMenuItem.Size = new Size(48, 20);
             stockToolStripMenuItem.Text = "Stock";
+            stockToolStripMenuItem.Click += stockToolStripMenuItem_Click;
             // 
             // salesOrderToolStripMenuItem
             // 

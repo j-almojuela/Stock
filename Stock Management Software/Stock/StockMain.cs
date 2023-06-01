@@ -26,10 +26,10 @@ namespace Stock
         bool close = true;
         private void StockMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(close)
+            if (close)
             {
 
-            DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     close = false;
@@ -40,6 +40,14 @@ namespace Stock
                     e.Cancel = true;
                 }
             }
+        }
+
+        private void stockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Stock stk = new Stock();
+            stk.MdiParent = this;
+            stk.StartPosition = FormStartPosition.CenterScreen;
+            stk.Show();
         }
     }
 }
