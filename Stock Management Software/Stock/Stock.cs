@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,7 @@ namespace Stock
             this.ActiveControl = dateTimePicker1;
             Status2.SelectedIndex = 0;
             LoadData();
+            Search();
         }
 
         private void dateTimePicker1_KeyDown(object sender, KeyEventArgs e)
@@ -42,13 +44,16 @@ namespace Stock
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (ProductCode2.Text.Length > 0)
+               if (dgview.Rows.Count > 0)
                 {
-                    ProductName2.Focus();
+                    ProductCode2.Text = dgview.SelectedRows[0].Cells[0].Value.ToString();
+                    ProductName2.Text = dgview.SelectedRows[0].Cells[1].Value.ToString();
+                    this.dgview.Visible = false;
+                    Quantity.Focus();
                 }
-                else
+               else
                 {
-                    ProductCode2.Focus();
+                    this.dgview.Visible = false;
                 }
             }
         }
@@ -68,6 +73,19 @@ namespace Stock
             }
         }
 
+        bool change = true;
+        private void proCode_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+          if (change)
+            {
+                change = false;
+                ProductCode2.Text = dgview.SelectedRows[0].Cells[0].Value.ToString();
+                ProductName2.Text = dgview.SelectedRows[0].Cells[1].Value.ToString();
+                this.dgview.Visible = false;
+                Quantity.Focus();
+                change = true;
+            }
+        }
         private void Quantity_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -286,6 +304,86 @@ namespace Stock
                     LoadData();
                     ResetRecords();
                 }
+            }
+        }
+
+        private void ProductCode2_TextChanged(object sender, EventArgs e)
+        {
+            if (ProductCode2.Text.Length > 0)
+            {
+                this.dgview.Visible = true;
+                dgview.BringToFront();
+                Search(150, 105, 430, 200, "Product Code,Product Name", "100,0");
+                this.dgview.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.proCode_MouseDoubleClick);
+                SqlConnection con = Connection.GetConnection();
+                SqlDataAdapter sda = new SqlDataAdapter("Select Top(10) ProductCode,ProductName From [Products] WHERE [ProductCode] Like '" + ProductCode2.Text + "%'", con);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                dgview.Rows.Clear();
+                foreach (DataRow row in dt.Rows)
+                {
+                    int n = dgview.Rows.Add();
+                    dgview.Rows[n].Cells[0].Value = row["ProductCode"].ToString();
+                    dgview.Rows[n].Cells[1].Value = row["ProductName"].ToString();
+                }
+            }
+            else
+            {
+                dgview.Visible = false;
+            }
+        }
+
+        private DataGridView dgview;
+        private DataGridViewTextBoxColumn dgviewcol1;
+        private DataGridViewTextBoxColumn dgviewcol2;
+
+        void Search()
+        {
+            dgview = new DataGridView();
+            dgviewcol1 = new DataGridViewTextBoxColumn();
+            dgviewcol2 = new DataGridViewTextBoxColumn();
+            this.dgview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.dgviewcol1, this.dgviewcol2 });
+            this.dgview.Name = "dgview";
+            dgview.Visible = false;
+            this.dgviewcol1.Visible = false;
+            this.dgviewcol2.Visible = false;
+            this.dgview.AllowUserToAddRows = false;
+            this.dgview.RowHeadersVisible = false;
+            this.dgview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            //this.dg.view.Keydown += new System.Windows.Forms.KeyEventHandler(this.dgview_Keydown);
+
+            this.Controls.Add(dgview);
+            this.dgview.ReadOnly = true;
+            dgview.BringToFront();
+        }
+
+        //Two Column
+        void Search(int LX, int LY, int DW, int DH, string ColName, String ColSize)
+        {
+            this.dgview.Location = new System.Drawing.Point(LX, LY);
+            this.dgview.Size = new System.Drawing.Size(DW, DH);
+
+            string[] ClSize = ColSize.Split(',');
+            //Size
+            for (int i = 0; i < ClSize.Length; i++)
+            {
+                if (int.Parse(ClSize[i]) != 0)
+                {
+                    dgview.Columns[i].Width = int.Parse(ClSize[i]);
+                }
+                else
+                {
+                    dgview.Columns[i].AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+                }
+            }
+            //Name
+            string[] ClName = ColName.Split(',');
+
+            for (int i = 0; i < ClName.Length; i++)
+            {
+                this.dgview.Columns[i].HeaderText = ClName[i];
+                this.dgview.Columns[i].Visible = true;
             }
         }
     }

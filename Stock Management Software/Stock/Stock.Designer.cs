@@ -73,6 +73,7 @@
             ProductCode2.Name = "ProductCode2";
             ProductCode2.Size = new Size(148, 23);
             ProductCode2.TabIndex = 1;
+            ProductCode2.TextChanged += ProductCode2_TextChanged;
             ProductCode2.KeyDown += ProductCode2_KeyDown;
             ProductCode2.KeyPress += ProductCode2_KeyPress;
             // 
@@ -106,7 +107,7 @@
             // 
             // AddButton2
             // 
-            AddButton2.Location = new Point(766, 163);
+            AddButton2.Location = new Point(767, 137);
             AddButton2.Name = "AddButton2";
             AddButton2.Size = new Size(85, 37);
             AddButton2.TabIndex = 5;
@@ -116,7 +117,7 @@
             // 
             // DeleteButton2
             // 
-            DeleteButton2.Location = new Point(766, 206);
+            DeleteButton2.Location = new Point(767, 180);
             DeleteButton2.Name = "DeleteButton2";
             DeleteButton2.Size = new Size(85, 35);
             DeleteButton2.TabIndex = 6;
@@ -126,7 +127,7 @@
             // 
             // ResetButton2
             // 
-            ResetButton2.Location = new Point(766, 247);
+            ResetButton2.Location = new Point(767, 221);
             ResetButton2.Name = "ResetButton2";
             ResetButton2.Size = new Size(85, 37);
             ResetButton2.TabIndex = 7;
@@ -139,7 +140,7 @@
             dataGridView2.AllowUserToAddRows = false;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Columns.AddRange(new DataGridViewColumn[] { dgProCode, dgProName, dgQuantity, dgDate, dgStatus });
-            dataGridView2.Location = new Point(48, 162);
+            dataGridView2.Location = new Point(48, 137);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView2.Size = new Size(704, 339);
@@ -180,7 +181,7 @@
             // 
             LabelTotalProducts.AutoSize = true;
             LabelTotalProducts.Font = new Font("Trebuchet MS", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelTotalProducts.Location = new Point(162, 126);
+            LabelTotalProducts.Location = new Point(162, 490);
             LabelTotalProducts.Name = "LabelTotalProducts";
             LabelTotalProducts.Size = new Size(18, 20);
             LabelTotalProducts.TabIndex = 10;
@@ -190,7 +191,7 @@
             // 
             LabelTotalQuantity.AutoSize = true;
             LabelTotalQuantity.Font = new Font("Trebuchet MS", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelTotalQuantity.Location = new Point(454, 126);
+            LabelTotalQuantity.Location = new Point(454, 490);
             LabelTotalQuantity.Name = "LabelTotalQuantity";
             LabelTotalQuantity.Size = new Size(18, 20);
             LabelTotalQuantity.TabIndex = 11;
@@ -249,7 +250,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(48, 126);
+            label1.Location = new Point(48, 490);
             label1.Name = "label1";
             label1.Size = new Size(108, 20);
             label1.TabIndex = 17;
@@ -259,7 +260,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(339, 126);
+            label2.Location = new Point(339, 490);
             label2.Name = "label2";
             label2.Size = new Size(109, 20);
             label2.TabIndex = 18;
@@ -269,7 +270,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(907, 542);
+            ClientSize = new Size(891, 541);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(Stat);
