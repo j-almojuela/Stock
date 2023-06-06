@@ -61,6 +61,7 @@ namespace Stock
                 SqlCommand cmd = new SqlCommand(sqlQuery, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
+                MessageBox.Show("Record saved successfully");
 
                 //Reading Data
                 LoadData();
@@ -133,6 +134,7 @@ namespace Stock
                         SqlCommand cmd = new SqlCommand(sqlQuery, con);
                         cmd.ExecuteNonQuery();
                         con.Close();
+                        MessageBox.Show("Record deleted successfully");
                     }
                     else
                     {

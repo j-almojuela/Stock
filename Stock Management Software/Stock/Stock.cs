@@ -219,6 +219,7 @@ namespace Stock
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Record saved successfully");
+                LoadData();
                 ResetRecords();
             }
         }
