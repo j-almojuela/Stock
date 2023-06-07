@@ -47,7 +47,7 @@ namespace Stock
             //TO-DO: Check login username & password
             SqlConnection con = Connection.GetConnection();
             SqlDataAdapter sda = new SqlDataAdapter(@"SELECT *
-                FROM [Stock].[dbo].[Login] Where UserName='" + Username.Text + "' and Password='" + Password.Text + "'", con);
+                FROM [SANDBOX_SAGE50].[dbo].[LOGIN] Where Username='" + Username.Text + "' and Password='" + Password.Text + "'", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             if (dt.Rows.Count == 1)
