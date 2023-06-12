@@ -44,14 +44,14 @@ namespace Stock
         {
             if (e.KeyCode == Keys.Enter)
             {
-               if (dgview.Rows.Count > 0)
+                if (dgview.Rows.Count > 0)
                 {
                     ProductCode2.Text = dgview.SelectedRows[0].Cells[0].Value.ToString();
                     ProductName2.Text = dgview.SelectedRows[0].Cells[1].Value.ToString();
                     this.dgview.Visible = false;
                     Quantity.Focus();
                 }
-               else
+                else
                 {
                     this.dgview.Visible = false;
                 }
@@ -76,7 +76,7 @@ namespace Stock
         bool change = true;
         private void proCode_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-          if (change)
+            if (change)
             {
                 change = false;
                 ProductCode2.Text = dgview.SelectedRows[0].Cells[0].Value.ToString();

@@ -43,6 +43,7 @@
             Username.Name = "Username";
             Username.Size = new Size(277, 23);
             Username.TabIndex = 0;
+            Username.Text = "admin";
             Username.TextChanged += Username_TextChanged;
             // 
             // Password
@@ -52,6 +53,7 @@
             Password.PasswordChar = '•';
             Password.Size = new Size(277, 23);
             Password.TabIndex = 1;
+            Password.Text = "admin123";
             Password.TextChanged += Password_TextChanged;
             // 
             // label1

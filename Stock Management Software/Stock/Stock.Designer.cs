@@ -290,6 +290,7 @@
             Controls.Add(ProductCode2);
             Controls.Add(dateTimePicker1);
             Name = "Stock";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Stock";
             Load += Stock_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();

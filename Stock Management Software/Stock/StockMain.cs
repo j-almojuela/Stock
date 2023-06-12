@@ -49,5 +49,12 @@ namespace Stock
             stk.StartPosition = FormStartPosition.CenterScreen;
             stk.Show();
         }
+
+        private void salesOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SalesOrder sales = new SalesOrder();
+            sales.MdiParent = this;
+            sales.Show();
+        }
     }
 }

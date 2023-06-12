@@ -38,11 +38,11 @@
             label2 = new Label();
             label3 = new Label();
             dataGridView1 = new DataGridView();
-            ResetButton = new Button();
-            errorProvider1 = new ErrorProvider(components);
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
+            ResetButton = new Button();
+            errorProvider1 = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
@@ -64,7 +64,7 @@
             // Status
             // 
             Status.FormattingEnabled = true;
-            Status.Items.AddRange(new object[] { "Active", "Deactivate" });
+            Status.Items.AddRange(new object[] { "Active", "Inactive" });
             Status.Location = new Point(428, 61);
             Status.Name = "Status";
             Status.Size = new Size(153, 23);
@@ -131,20 +131,6 @@
             dataGridView1.TabIndex = 8;
             dataGridView1.MouseDoubleClick += dataGridView1_MouseDoubleClick;
             // 
-            // ResetButton
-            // 
-            ResetButton.Location = new Point(774, 59);
-            ResetButton.Name = "ResetButton";
-            ResetButton.Size = new Size(75, 23);
-            ResetButton.TabIndex = 9;
-            ResetButton.Text = "Reset";
-            ResetButton.UseVisualStyleBackColor = true;
-            ResetButton.Click += ResetButton_Click;
-            // 
-            // errorProvider1
-            // 
-            errorProvider1.ContainerControl = this;
-            // 
             // Column1
             // 
             Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -162,6 +148,20 @@
             Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Column3.HeaderText = "Status";
             Column3.Name = "Column3";
+            // 
+            // ResetButton
+            // 
+            ResetButton.Location = new Point(774, 59);
+            ResetButton.Name = "ResetButton";
+            ResetButton.Size = new Size(75, 23);
+            ResetButton.TabIndex = 9;
+            ResetButton.Text = "Reset";
+            ResetButton.UseVisualStyleBackColor = true;
+            ResetButton.Click += ResetButton_Click;
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
             // 
             // Products
             // 

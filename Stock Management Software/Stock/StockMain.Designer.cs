@@ -69,6 +69,7 @@
             salesOrderToolStripMenuItem.Name = "salesOrderToolStripMenuItem";
             salesOrderToolStripMenuItem.Size = new Size(78, 20);
             salesOrderToolStripMenuItem.Text = "Sales Order";
+            salesOrderToolStripMenuItem.Click += salesOrderToolStripMenuItem_Click;
             // 
             // statusStrip
             // 
