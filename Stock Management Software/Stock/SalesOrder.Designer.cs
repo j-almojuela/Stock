@@ -28,119 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            dgNo = new DataGridViewTextBoxColumn();
-            dgType = new DataGridViewTextBoxColumn();
-            dgDate = new DataGridViewTextBoxColumn();
-            dgName = new DataGridViewTextBoxColumn();
-            dgAmount = new DataGridViewTextBoxColumn();
-            dgForeign = new DataGridViewTextBoxColumn();
-            dgCurrency = new DataGridViewTextBoxColumn();
-            dgAllocated = new DataGridViewTextBoxColumn();
-            dgDespatched = new DataGridViewTextBoxColumn();
-            dgPrinted = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            dataGridView3 = new DataGridView();
+            label1 = new Label();
+            label2 = new Label();
+            DropDownList = new ComboBox();
+            Search = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridView3
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgNo, dgType, dgDate, dgName, dgAmount, dgForeign, dgCurrency, dgAllocated, dgDespatched, dgPrinted });
-            dataGridView1.Location = new Point(32, 46);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1120, 318);
-            dataGridView1.TabIndex = 0;
+            dataGridView3.AllowUserToAddRows = false;
+            dataGridView3.AllowUserToDeleteRows = false;
+            dataGridView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView3.Location = new Point(34, 87);
+            dataGridView3.Name = "dataGridView3";
+            dataGridView3.ReadOnly = true;
+            dataGridView3.RowTemplate.Height = 25;
+            dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView3.Size = new Size(1120, 318);
+            dataGridView3.TabIndex = 0;
             // 
-            // dgNo
+            // label1
             // 
-            dgNo.HeaderText = "No.";
-            dgNo.Name = "dgNo";
-            dgNo.ReadOnly = true;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(34, 39);
+            label1.Name = "label1";
+            label1.Size = new Size(47, 21);
+            label1.TabIndex = 1;
+            label1.Text = "Field";
             // 
-            // dgType
+            // label2
             // 
-            dgType.HeaderText = "Type";
-            dgType.Name = "dgType";
-            dgType.ReadOnly = true;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(410, 39);
+            label2.Name = "label2";
+            label2.Size = new Size(61, 21);
+            label2.TabIndex = 2;
+            label2.Text = "Search";
             // 
-            // dgDate
+            // DropDownList
             // 
-            dgDate.HeaderText = "Date";
-            dgDate.Name = "dgDate";
-            dgDate.ReadOnly = true;
+            DropDownList.FormattingEnabled = true;
+            DropDownList.Location = new Point(87, 37);
+            DropDownList.Name = "DropDownList";
+            DropDownList.Size = new Size(216, 23);
+            DropDownList.TabIndex = 3;
             // 
-            // dgName
+            // Search
             // 
-            dgName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgName.HeaderText = "Name";
-            dgName.Name = "dgName";
-            dgName.ReadOnly = true;
-            // 
-            // dgAmount
-            // 
-            dgAmount.HeaderText = "Amount £";
-            dgAmount.Name = "dgAmount";
-            dgAmount.ReadOnly = true;
-            // 
-            // dgForeign
-            // 
-            dgForeign.HeaderText = "Foreign Amount";
-            dgForeign.Name = "dgForeign";
-            dgForeign.ReadOnly = true;
-            // 
-            // dgCurrency
-            // 
-            dgCurrency.HeaderText = "Currency Code";
-            dgCurrency.Name = "dgCurrency";
-            dgCurrency.ReadOnly = true;
-            // 
-            // dgAllocated
-            // 
-            dgAllocated.HeaderText = "Allocated";
-            dgAllocated.Name = "dgAllocated";
-            dgAllocated.ReadOnly = true;
-            // 
-            // dgDespatched
-            // 
-            dgDespatched.HeaderText = "Despatched";
-            dgDespatched.Name = "dgDespatched";
-            dgDespatched.ReadOnly = true;
-            // 
-            // dgPrinted
-            // 
-            dgPrinted.HeaderText = "Printed";
-            dgPrinted.Name = "dgPrinted";
-            dgPrinted.ReadOnly = true;
+            Search.Location = new Point(477, 37);
+            Search.Name = "Search";
+            Search.Size = new Size(362, 23);
+            Search.TabIndex = 4;
+            Search.KeyPress += Search_KeyPress;
             // 
             // SalesOrder
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1186, 668);
-            Controls.Add(dataGridView1);
+            Controls.Add(Search);
+            Controls.Add(DropDownList);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(dataGridView3);
             Name = "SalesOrder";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "SalesOrder";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Text = "Sales Order";
+            Load += SalesOrder_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn dgNo;
-        private DataGridViewTextBoxColumn dgType;
-        private DataGridViewTextBoxColumn dgDate;
-        private DataGridViewTextBoxColumn dgName;
-        private DataGridViewTextBoxColumn dgAmount;
-        private DataGridViewTextBoxColumn dgForeign;
-        private DataGridViewTextBoxColumn dgCurrency;
-        private DataGridViewTextBoxColumn dgAllocated;
-        private DataGridViewTextBoxColumn dgDespatched;
-        private DataGridViewTextBoxColumn dgPrinted;
+        private DataGridView dataGridView3;
+        private Label label1;
+        private Label label2;
+        private ComboBox DropDownList;
+        private TextBox Search;
     }
 }
