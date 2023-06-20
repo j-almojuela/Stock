@@ -50,11 +50,18 @@ namespace Stock
             stk.Show();
         }
 
-        private void salesOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        private void salesOrderToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             SalesOrder sales = new SalesOrder();
             sales.MdiParent = this;
             sales.Show();
+        }
+
+        private void salesOrderLinesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SalesOrderLines sol = new SalesOrderLines();
+            sol.MdiParent = this;
+            sol.Show();
         }
     }
 }

@@ -33,6 +33,8 @@
             productsToolStripMenuItem = new ToolStripMenuItem();
             stockToolStripMenuItem = new ToolStripMenuItem();
             salesOrderToolStripMenuItem = new ToolStripMenuItem();
+            salesOrderToolStripMenuItem1 = new ToolStripMenuItem();
+            salesOrderLinesToolStripMenuItem = new ToolStripMenuItem();
             statusStrip = new StatusStrip();
             toolStripStatusLabel = new ToolStripStatusLabel();
             toolTip = new ToolTip(components);
@@ -66,10 +68,24 @@
             // 
             // salesOrderToolStripMenuItem
             // 
+            salesOrderToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { salesOrderToolStripMenuItem1, salesOrderLinesToolStripMenuItem });
             salesOrderToolStripMenuItem.Name = "salesOrderToolStripMenuItem";
             salesOrderToolStripMenuItem.Size = new Size(78, 20);
             salesOrderToolStripMenuItem.Text = "Sales Order";
-            salesOrderToolStripMenuItem.Click += salesOrderToolStripMenuItem_Click;
+            // 
+            // salesOrderToolStripMenuItem1
+            // 
+            salesOrderToolStripMenuItem1.Name = "salesOrderToolStripMenuItem1";
+            salesOrderToolStripMenuItem1.Size = new Size(180, 22);
+            salesOrderToolStripMenuItem1.Text = "Sales Order";
+            salesOrderToolStripMenuItem1.Click += salesOrderToolStripMenuItem1_Click;
+            // 
+            // salesOrderLinesToolStripMenuItem
+            // 
+            salesOrderLinesToolStripMenuItem.Name = "salesOrderLinesToolStripMenuItem";
+            salesOrderLinesToolStripMenuItem.Size = new Size(180, 22);
+            salesOrderLinesToolStripMenuItem.Text = "Sales Order Lines";
+            salesOrderLinesToolStripMenuItem.Click += salesOrderLinesToolStripMenuItem_Click;
             // 
             // statusStrip
             // 
@@ -166,6 +182,8 @@
         private ToolStripMenuItem productsToolStripMenuItem;
         private ToolStripMenuItem stockToolStripMenuItem;
         private ToolStripMenuItem salesOrderToolStripMenuItem;
+        private ToolStripMenuItem salesOrderToolStripMenuItem1;
+        private ToolStripMenuItem salesOrderLinesToolStripMenuItem;
     }
 }
 
