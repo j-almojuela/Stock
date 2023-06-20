@@ -41,14 +41,46 @@ namespace Stock
             }
         }
 
-        private void Search_KeyPress(object sender, KeyPressEventArgs e)
+        SqlConnection con = new SqlConnection("Data Source=BLACKPERL\\WORKBENCH;Initial Catalog=SANDBOX_SAGE50;Integrated Security =True;User ID=sa;Password=***********");
+        private void Search_TextChanged(object sender, EventArgs e)
         {
-            if(e.KeyChar == (char)13)
+            if (DropDownList.Text == "Order Number")
             {
-                DataView dv = dt.DefaultView;
-                dv.RowFilter = string.Format("NAME like '%{0}%'", Search.Text);
-                dataGridView3.DataSource = dv.ToTable();
+                SqlDataAdapter sda = new SqlDataAdapter("Select * From [SANDBOX_SAGE50].[dbo].[SALES_ORDER] WHERE ORDER_NUMBER LIKE '" + Search.Text + "%'", con);
+                DataTable data = new DataTable();
+                sda.Fill(data);
+                dataGridView3.DataSource = data;
+            }
+            else if (DropDownList.Text == "Allocated Status")
+            {
+                SqlDataAdapter sda = new SqlDataAdapter("Select * From [SANDBOX_SAGE50].[dbo].[SALES_ORDER] WHERE ALLOCATED_STATUS LIKE '" + Search.Text + "%'", con);
+                DataTable data = new DataTable();
+                sda.Fill(data);
+                dataGridView3.DataSource = data;
+            }
+            else if (DropDownList.Text == "Despatch Status")
+            {
+                SqlDataAdapter sda = new SqlDataAdapter("Select * From [SANDBOX_SAGE50].[dbo].[SALES_ORDER] WHERE DESPATCH_STATUS LIKE '" + Search.Text + "%'", con);
+                DataTable data = new DataTable();
+                sda.Fill(data);
+                dataGridView3.DataSource = data;
+            }
+            else if (DropDownList.Text == "Account Ref")
+            {
+                SqlDataAdapter sda = new SqlDataAdapter("Select * From [SANDBOX_SAGE50].[dbo].[SALES_ORDER] WHERE ACCOUNT_REF LIKE '" + Search.Text + "%'", con);
+                DataTable data = new DataTable();
+                sda.Fill(data);
+                dataGridView3.DataSource = data;
+            }
+            else if (DropDownList.Text == "Name")
+            {
+                SqlDataAdapter sda = new SqlDataAdapter("Select * From [SANDBOX_SAGE50].[dbo].[SALES_ORDER] WHERE NAME LIKE '" + Search.Text + "%'", con);
+                DataTable data = new DataTable();
+                sda.Fill(data);
+                dataGridView3.DataSource = data;
             }
         }
     }
 }
+
+

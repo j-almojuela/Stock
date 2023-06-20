@@ -55,9 +55,9 @@
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(34, 39);
             label1.Name = "label1";
-            label1.Size = new Size(47, 21);
+            label1.Size = new Size(130, 21);
             label1.TabIndex = 1;
-            label1.Text = "Field";
+            label1.Text = "Select Cateogry";
             // 
             // label2
             // 
@@ -72,18 +72,19 @@
             // DropDownList
             // 
             DropDownList.FormattingEnabled = true;
-            DropDownList.Location = new Point(87, 37);
+            DropDownList.Items.AddRange(new object[] { "Order Number", "Allocated Status", "Despatch Status", "Account Ref", "Name" });
+            DropDownList.Location = new Point(170, 39);
             DropDownList.Name = "DropDownList";
             DropDownList.Size = new Size(216, 23);
             DropDownList.TabIndex = 3;
             // 
             // Search
             // 
-            Search.Location = new Point(477, 37);
+            Search.Location = new Point(477, 39);
             Search.Name = "Search";
             Search.Size = new Size(362, 23);
             Search.TabIndex = 4;
-            Search.KeyPress += Search_KeyPress;
+            Search.TextChanged += Search_TextChanged;
             // 
             // SalesOrder
             // 
