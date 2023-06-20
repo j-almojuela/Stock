@@ -41,29 +41,30 @@
             dataGridView3.AllowUserToAddRows = false;
             dataGridView3.AllowUserToDeleteRows = false;
             dataGridView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView3.Location = new Point(34, 87);
+            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView3.Location = new Point(34, 119);
             dataGridView3.Name = "dataGridView3";
             dataGridView3.ReadOnly = true;
             dataGridView3.RowTemplate.Height = 25;
             dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView3.Size = new Size(1120, 318);
+            dataGridView3.Size = new Size(1120, 483);
             dataGridView3.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(34, 39);
+            label1.Location = new Point(34, 53);
             label1.Name = "label1";
-            label1.Size = new Size(130, 21);
+            label1.Size = new Size(64, 21);
             label1.TabIndex = 1;
-            label1.Text = "Select Cateogry";
+            label1.Text = "Sort by";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(410, 39);
+            label2.Location = new Point(352, 53);
             label2.Name = "label2";
             label2.Size = new Size(61, 21);
             label2.TabIndex = 2;
@@ -71,18 +72,22 @@
             // 
             // DropDownList
             // 
+            DropDownList.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             DropDownList.FormattingEnabled = true;
             DropDownList.Items.AddRange(new object[] { "Order Number", "Allocated Status", "Despatch Status", "Account Ref", "Name" });
-            DropDownList.Location = new Point(170, 39);
+            DropDownList.Location = new Point(104, 46);
             DropDownList.Name = "DropDownList";
-            DropDownList.Size = new Size(216, 23);
+            DropDownList.Size = new Size(216, 29);
             DropDownList.TabIndex = 3;
+            DropDownList.Text = "Select";
             // 
             // Search
             // 
-            Search.Location = new Point(477, 39);
+            Search.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Search.Location = new Point(419, 46);
             Search.Name = "Search";
-            Search.Size = new Size(362, 23);
+            Search.PlaceholderText = "Search                                                                      🔍";
+            Search.Size = new Size(362, 29);
             Search.TabIndex = 4;
             Search.TextChanged += Search_TextChanged;
             // 
