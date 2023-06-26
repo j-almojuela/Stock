@@ -38,6 +38,7 @@
             statusStrip = new StatusStrip();
             toolStripStatusLabel = new ToolStripStatusLabel();
             toolTip = new ToolTip(components);
+            deliveryToolStripMenuItem = new ToolStripMenuItem();
             menuStrip.SuspendLayout();
             statusStrip.SuspendLayout();
             SuspendLayout();
@@ -68,7 +69,7 @@
             // 
             // salesOrderToolStripMenuItem
             // 
-            salesOrderToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { salesOrderToolStripMenuItem1, salesOrderLinesToolStripMenuItem });
+            salesOrderToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { salesOrderToolStripMenuItem1, salesOrderLinesToolStripMenuItem, deliveryToolStripMenuItem });
             salesOrderToolStripMenuItem.Name = "salesOrderToolStripMenuItem";
             salesOrderToolStripMenuItem.Size = new Size(78, 20);
             salesOrderToolStripMenuItem.Text = "Sales Order";
@@ -102,6 +103,13 @@
             toolStripStatusLabel.Name = "toolStripStatusLabel";
             toolStripStatusLabel.Size = new Size(39, 17);
             toolStripStatusLabel.Text = "Status";
+            // 
+            // deliveryToolStripMenuItem
+            // 
+            deliveryToolStripMenuItem.Name = "deliveryToolStripMenuItem";
+            deliveryToolStripMenuItem.Size = new Size(180, 22);
+            deliveryToolStripMenuItem.Text = "Delivery";
+            
             // 
             // StockMain
             // 
@@ -184,6 +192,7 @@
         private ToolStripMenuItem salesOrderToolStripMenuItem;
         private ToolStripMenuItem salesOrderToolStripMenuItem1;
         private ToolStripMenuItem salesOrderLinesToolStripMenuItem;
+        private ToolStripMenuItem deliveryToolStripMenuItem;
     }
 }
 

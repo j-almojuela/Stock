@@ -87,5 +87,13 @@ namespace Stock
                 dataGridView4.DataSource = data;
             }
         }
+
+        private void dataGridView4_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Delivery ship = new Delivery(dataGridView4.SelectedRows[0].Cells[0].Value.ToString(),
+                                          dataGridView4.SelectedRows[0].Cells[1].Value.ToString());
+
+            ship.Show();
+        }
     }
 }

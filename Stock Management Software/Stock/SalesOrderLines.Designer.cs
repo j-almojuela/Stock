@@ -79,12 +79,17 @@
             // 
             // dataGridView4
             // 
+            dataGridView4.AllowUserToAddRows = false;
+            dataGridView4.AllowUserToDeleteRows = false;
             dataGridView4.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView4.Location = new Point(32, 118);
             dataGridView4.Name = "dataGridView4";
+            dataGridView4.ReadOnly = true;
+            dataGridView4.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView4.Size = new Size(1122, 486);
             dataGridView4.TabIndex = 4;
+            dataGridView4.CellDoubleClick += dataGridView4_CellDoubleClick;
             // 
             // SalesOrderLines
             // 
